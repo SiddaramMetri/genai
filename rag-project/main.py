@@ -4,20 +4,15 @@ import os
 import time
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from pathlib import Path
 import tempfile
 import tiktoken
-from datetime import datetime
-
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_openai import OpenAIEmbeddings
 from langchain_qdrant import QdrantVectorStore
+from langchain_openai import OpenAIEmbeddings
 from openai import OpenAI
-
 from streamlit_cookies_manager import EncryptedCookieManager
 import streamlit.components.v1 as components
-
 st.set_page_config(
     page_title="PDF Chat Assistant",
     page_icon="📚",
