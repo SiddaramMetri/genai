@@ -3,7 +3,6 @@ from pathlib import Path
 import os
 import time
 from datetime import datetime, timedelta
-from dotenv import load_dotenv
 import tempfile
 import tiktoken
 from langchain_community.document_loaders import PyPDFLoader
@@ -20,14 +19,13 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-load_dotenv()
 
-client = OpenAI()
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 embedding_model = OpenAIEmbeddings()
 
-QDRANT_URL = os.getenv("QDRANT_URL")
-QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
+QDRANT_URL = st.secrets["QDRANT_URL"]
+QDRANT_API_KEY = st.secrets["QDRANT_API_KEY"]
 
 if not QDRANT_URL or not QDRANT_API_KEY:
     st.error("❌ Missing Qdrant configuration. Please set QDRANT_URL and QDRANT_API_KEY in your .env file")
