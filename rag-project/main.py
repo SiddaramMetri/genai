@@ -3,14 +3,6 @@ from pathlib import Path
 import os
 import time
 from datetime import datetime, timedelta
-
-st.set_page_config(
-    page_title="PDF Chat Assistant",
-    page_icon="📚",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
 from dotenv import load_dotenv
 from pathlib import Path
 import tempfile
@@ -25,6 +17,13 @@ from openai import OpenAI
 
 from streamlit_cookies_manager import EncryptedCookieManager
 import streamlit.components.v1 as components
+
+st.set_page_config(
+    page_title="PDF Chat Assistant",
+    page_icon="📚",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 load_dotenv()
 
