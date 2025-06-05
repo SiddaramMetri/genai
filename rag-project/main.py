@@ -7,7 +7,12 @@ import time
 from datetime import datetime, timedelta
 import tempfile
 import tiktoken
-from langchain_community.document_loaders import PyPDFLoader
+try:
+    from langchain_community.document_loaders import PyPDFLoader
+except ImportError:
+    # Fallback if pypdf is not available
+    st.error("PDF processing library not found. Please install pypdf: pip install pypdf")
+    st.stop()
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_qdrant import QdrantVectorStore
 from langchain_openai import OpenAIEmbeddings
