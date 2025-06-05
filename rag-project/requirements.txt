@@ -8,6 +8,5 @@ langchain-qdrant==0.0.1
 openai==1.14.0
 qdrant-client==1.7.3
 pypdf==4.1.0
-streamlit-auth-component>=0.1.0
-tiktoken>=0.5.0
-streamlit-cookies-manager>=0.1.0
+tiktoken==0.6.0
+streamlit-cookies-manager==0.3.0
