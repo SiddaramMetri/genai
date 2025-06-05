@@ -1,5 +1,13 @@
 import streamlit as st
+st.set_page_config(
+    page_title="PDF Chat Assistant",
+    page_icon="📚",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 from pathlib import Path
+from dotenv import load_dotenv
 import os
 import time
 from datetime import datetime, timedelta
@@ -12,20 +20,15 @@ from langchain_openai import OpenAIEmbeddings
 from openai import OpenAI
 from streamlit_cookies_manager import EncryptedCookieManager
 import streamlit.components.v1 as components
-st.set_page_config(
-    page_title="PDF Chat Assistant",
-    page_icon="📚",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
 
+load_dotenv()
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+client = OpenAI()
 
 embedding_model = OpenAIEmbeddings()
 
-QDRANT_URL = st.secrets["QDRANT_URL"]
-QDRANT_API_KEY = st.secrets["QDRANT_API_KEY"]
+QDRANT_URL = os.getenv("QDRANT_URL")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 
 if not QDRANT_URL or not QDRANT_API_KEY:
     st.error("❌ Missing Qdrant configuration. Please set QDRANT_URL and QDRANT_API_KEY in your .env file")
