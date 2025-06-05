@@ -1,0 +1,13 @@
+streamlit==1.32.0
+python-dotenv==1.0.1
+langchain==0.1.12
+langchain-community==0.0.27
+langchain-openai==0.0.8
+langchain-text-splitters==0.0.1
+langchain-qdrant==0.0.1
+openai==1.14.0
+qdrant-client==1.7.3
+pypdf==4.1.0
+streamlit-auth-component>=0.1.0
+tiktoken>=0.5.0
+streamlit-cookies-manager>=0.1.0
